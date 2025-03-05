@@ -19,6 +19,7 @@ const Redirect = memo<RedirectProps>(({ setActiveStage }) => {
 
 	useEffect(() => {
 		// finally check the conversation status
+		console.log("navToChat");
 		navToChat();
 	}, []);
 

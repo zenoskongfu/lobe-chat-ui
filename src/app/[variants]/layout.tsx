@@ -21,7 +21,7 @@ const RootLayout = async ({ children, params, modal }: RootLayoutProps) => {
 	const { locale, isMobile, theme, primaryColor, neutralColor } = RouteVariants.deserializeVariants(variants);
 
 	const direction = isRtlLang(locale) ? "rtl" : "ltr";
-
+	console.log("layout");
 	return (
 		<html dir={direction} lang={locale} suppressHydrationWarning>
 			<body>

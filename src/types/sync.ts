@@ -1,18 +1,18 @@
-// import { LobeDBSchemaMap } from "@/database/_deprecated/core/db";
+import { LobeDBSchemaMap } from '@/database/_deprecated/core/db';
 
-// export type OnSyncEvent = (tableKey: keyof LobeDBSchemaMap) => void;
+export type OnSyncEvent = (tableKey: keyof LobeDBSchemaMap) => void;
 export type OnSyncStatusChange = (status: PeerSyncStatus) => void;
 export type OnAwarenessChange = (state: SyncAwarenessState[]) => void;
 
 // export type PeerSyncStatus = 'syncing' | 'synced' | 'ready' | 'unconnected';
 
 export enum PeerSyncStatus {
-  Connecting = "connecting",
-  Disabled = "disabled",
-  Ready = "ready",
-  Synced = "synced",
-  Syncing = "syncing",
-  Unconnected = "unconnected",
+  Connecting = 'connecting',
+  Disabled = 'disabled',
+  Ready = 'ready',
+  Synced = 'synced',
+  Syncing = 'syncing',
+  Unconnected = 'unconnected',
 }
 
 export interface StartDataSyncParams {
@@ -21,7 +21,7 @@ export interface StartDataSyncParams {
     password?: string;
   };
   onAwarenessChange: OnAwarenessChange;
-  // onSyncEvent: OnSyncEvent;
+  onSyncEvent: OnSyncEvent;
   onSyncStatusChange: OnSyncStatusChange;
   signaling: string;
   user: SyncUserInfo;
