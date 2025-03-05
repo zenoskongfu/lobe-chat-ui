@@ -1,50 +1,50 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
-import { useChatStore } from "@/store/chat";
-import { featureFlagsSelectors, useServerConfigStore } from "@/store/serverConfig";
-import { useSessionStore } from "@/store/session";
-import { useUserStore } from "@/store/user";
-import { syncSettingsSelectors, userProfileSelectors } from "@/store/user/selectors";
+import { useChatStore } from '@/store/chat';
+import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfig';
+import { useSessionStore } from '@/store/session';
+import { useUserStore } from '@/store/user';
+import { syncSettingsSelectors, userProfileSelectors } from '@/store/user/selectors';
 
 export const useSyncEvent = () => {
-	const [refreshMessages, refreshTopic] = useChatStore((s) => [s.refreshMessages, s.refreshTopic]);
-	const [refreshSessions] = useSessionStore((s) => [s.refreshSessions]);
+  const [refreshMessages, refreshTopic] = useChatStore((s) => [s.refreshMessages, s.refreshTopic]);
+  const [refreshSessions] = useSessionStore((s) => [s.refreshSessions]);
 
-	return useCallback((tableKey: string) => {
-		// console.log('triggerSync Event:', tableKey);
+  return useCallback((tableKey: string) => {
+    // console.log('triggerSync Event:', tableKey);
 
-		switch (tableKey) {
-			case "messages": {
-				refreshMessages();
-				break;
-			}
+    switch (tableKey) {
+      case 'messages': {
+        refreshMessages();
+        break;
+      }
 
-			case "topics": {
-				refreshTopic();
-				break;
-			}
+      case 'topics': {
+        refreshTopic();
+        break;
+      }
 
-			case "sessions": {
-				refreshSessions();
-				break;
-			}
+      case 'sessions': {
+        refreshSessions();
+        break;
+      }
 
-			default: {
-				break;
-			}
-		}
-	}, []);
+      default: {
+        break;
+      }
+    }
+  }, []);
 };
 
 export const useEnabledDataSync = () => {
-	const [userId, userEnableSync, useEnabledSync] = useUserStore((s) => [
-		userProfileSelectors.userId(s),
-		syncSettingsSelectors.enableWebRTC(s),
-		s.useEnabledSync,
-	]);
+  const [userId, userEnableSync, useEnabledSync] = useUserStore((s) => [
+    userProfileSelectors.userId(s),
+    syncSettingsSelectors.enableWebRTC(s),
+    s.useEnabledSync,
+  ]);
 
-	const { enableWebrtc } = useServerConfigStore(featureFlagsSelectors);
-	const syncEvent = useSyncEvent();
+  const { enableWebrtc } = useServerConfigStore(featureFlagsSelectors);
+  const syncEvent = useSyncEvent();
 
-	useEnabledSync(enableWebrtc, { onEvent: syncEvent, userEnableSync, userId });
+  useEnabledSync(enableWebrtc, { onEvent: syncEvent, userEnableSync, userId });
 };

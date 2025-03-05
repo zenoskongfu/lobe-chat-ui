@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useAgentStore } from '@/store/agent';
+import { useSessionStore } from '@/store/session';
+import { useUserStore } from '@/store/user';
+import { authSelectors } from '@/store/user/selectors';
 
 export const useInitAgentConfig = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [useFetchAgentConfig] = useAgentStore((s) => [s.useFetchAgentConfig]);
 
-  useEffect(() => {
-    // 模拟 5 秒的加载时间
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 5000);
+  const isLogin = useUserStore(authSelectors.isLogin);
 
-    return () => clearTimeout(timer);
-  }, []);
+  const [sessionId] = useSessionStore((s) => [s.activeId]);
 
-  return { isLoading };
-}; 
+  const data = useFetchAgentConfig(isLogin, sessionId);
+
+  return { ...data, isLoading: data.isLoading && isLogin };
+};
