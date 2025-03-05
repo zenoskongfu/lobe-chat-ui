@@ -1,15 +1,18 @@
-import pkg from "@/../package.json";
+import pkg from '@/../package.json';
 
-import { BRANDING_NAME, ORG_NAME } from "./branding";
+import { BRANDING_NAME, ORG_NAME } from './branding';
 
 export const CURRENT_VERSION = pkg.version;
 
-export const isServerMode = process.env.NEXT_PUBLIC_SERVICE_MODE === "server";
-export const isUsePgliteDB = process.env.NEXT_PUBLIC_CLIENT_DB === "pglite";
+export const isServerMode = process.env.NEXT_PUBLIC_SERVICE_MODE === 'server';
+export const isUsePgliteDB = process.env.NEXT_PUBLIC_CLIENT_DB === 'pglite';
+
+console.log('isServerMode', isServerMode);
+console.log('isServerMode NEXT_PUBLIC_SERVICE_MODE', process.env.NEXT_PUBLIC_SERVICE_MODE);
 
 export const isDeprecatedEdition = !isServerMode && !isUsePgliteDB;
 
 // @ts-ignore
-export const isCustomBranding = BRANDING_NAME !== "LobeChat";
+export const isCustomBranding = BRANDING_NAME !== 'LobeChat';
 // @ts-ignore
-export const isCustomORG = ORG_NAME !== "LobeHub";
+export const isCustomORG = ORG_NAME !== 'LobeHub';
