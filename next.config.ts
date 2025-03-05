@@ -14,8 +14,7 @@ const isUsePglite = process.env.NEXT_PUBLIC_CLIENT_DB === "pglite";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
 const nextConfig: NextConfig = {
-	basePath,
-
+	appDir: true,
 	compress: isProd,
 	experimental: {
 		optimizePackageImports: [
