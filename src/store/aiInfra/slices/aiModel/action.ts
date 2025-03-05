@@ -3,7 +3,6 @@ import { SWRResponse, mutate } from "swr";
 import { StateCreator } from "zustand/vanilla";
 
 import { useClientDataSWR } from "@/libs/swr";
-// import { aiModelService } from '@/services/aiModel';
 import { AiInfraStore } from "@/store/aiInfra/store";
 import {
 	AiModelSortMap,
@@ -62,27 +61,7 @@ export const createAiModelSlice: StateCreator<AiInfraStore, [["zustand/devtools"
 		// await aiModelService.createAiModel(data);
 		await get().refreshAiModelList();
 	},
-	fetchRemoteModelList: async (providerId) => {
-		// const { modelsService } = await import('@/services/models');
-		// const data = await modelsService.getChatModels(providerId);
-		// if (data) {
-		//   await get().batchUpdateAiModels(
-		//     data.map((model) => ({
-		//       ...model,
-		//       abilities: {
-		//         files: model.files,
-		//         functionCall: model.functionCall,
-		//         reasoning: model.reasoning,
-		//         vision: model.vision,
-		//       },
-		//       enabled: model.enabled || false,
-		//       source: 'remote',
-		//       type: 'chat',
-		//     })),
-		//   );
-		//   await get().refreshAiModelList();
-		// }
-	},
+	fetchRemoteModelList: async (providerId) => {},
 	internal_toggleAiModelLoading: (id, loading) => {
 		set(
 			(state) => {

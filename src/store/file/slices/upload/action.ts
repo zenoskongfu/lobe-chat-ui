@@ -5,8 +5,6 @@ import { StateCreator } from "zustand/vanilla";
 import { message } from "@/components/AntdStaticMethods";
 import { LOBE_CHAT_CLOUD } from "@/const/branding";
 import { isServerMode } from "@/const/version";
-// import { fileService } from '@/services/file';
-// import { uploadService } from '@/services/upload';
 import { FileMetadata, UploadFileItem } from "@/types/files";
 
 import { FileStore } from "../../store";

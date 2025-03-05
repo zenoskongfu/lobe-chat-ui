@@ -69,17 +69,8 @@ const ModelSwitch = memo(() => {
 
   const isMobile = useIsMobile();
 
-  // if (isLoading && isLoginWithAuth)
-  //   return (
-  //     <ActionIcon
-  //       icon={Brain}
-  //       placement={'bottom'}
-  //       style={{
-  //         cursor: 'not-allowed',
-  //       }}
-  //       title={t('ModelSwitch.title')}
-  //     />
-  //   );
+  console.log('ModelSwitch model', model);
+  console.log('ModelSwitch provider', provider);
 
   return (
     <Flexbox align={'center'} className={isModelHasExtendParams ? styles.container : ''} horizontal>

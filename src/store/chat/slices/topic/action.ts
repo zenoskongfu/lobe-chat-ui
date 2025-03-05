@@ -10,10 +10,7 @@ import { message } from "@/components/AntdStaticMethods";
 import { LOADING_FLAT } from "@/const/message";
 import { TraceNameMap } from "@/const/trace";
 import { useClientDataSWR } from "@/libs/swr";
-// import { chatService } from '@/services/chat';
-// import { messageService } from '@/services/message';
-// import { topicService } from '@/services/topic';
-// import { CreateTopicParams } from '@/services/topic/type';
+
 import type { ChatStore } from "@/store/chat";
 import { useUserStore } from "@/store/user";
 import { systemAgentSelectors } from "@/store/user/selectors";

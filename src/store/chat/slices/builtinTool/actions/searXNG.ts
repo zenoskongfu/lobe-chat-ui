@@ -1,6 +1,5 @@
 import { StateCreator } from "zustand/vanilla";
 
-// import { searchService } from '@/services/search';
 import { chatSelectors } from "@/store/chat/selectors";
 import { ChatStore } from "@/store/chat/store";
 import { CreateMessageParams } from "@/types/message";

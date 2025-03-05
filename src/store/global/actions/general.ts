@@ -5,7 +5,6 @@ import type { StateCreator } from "zustand/vanilla";
 
 import { CURRENT_VERSION } from "@/const/version";
 import { useOnlyFetchOnceSWR } from "@/libs/swr";
-// import { globalService } from '@/services/global';
 import type { SystemStatus } from "@/store/global/initialState";
 import { LocaleMode } from "@/types/locale";
 import { switchLang } from "@/utils/client/switchLang";

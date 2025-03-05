@@ -8,9 +8,7 @@ import { LOADING_FLAT, MESSAGE_CANCEL_FLAT } from "@/const/message";
 import { DEFAULT_AGENT_CHAT_CONFIG } from "@/const/settings";
 import { TraceEventType, TraceNameMap } from "@/const/trace";
 import { isServerMode } from "@/const/version";
-// import { knowledgeBaseQAPrompts } from '@/prompts/knowledgeBaseQA';
-// import { chatService } from '@/services/chat';
-// import { messageService } from '@/services/message';
+
 import { useAgentStore } from "@/store/agent";
 import { chatHelpers } from "@/store/chat/helpers";
 import { ChatStore } from "@/store/chat/store";

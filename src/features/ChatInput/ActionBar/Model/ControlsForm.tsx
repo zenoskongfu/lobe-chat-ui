@@ -41,6 +41,8 @@ const ControlsForm = memo(() => {
     },
   ];
 
+  console.log('modelExtendParams', modelExtendParams);
+
   return (
     <Form
       initialValues={config}

@@ -2,7 +2,6 @@ import { t } from "i18next";
 import { StateCreator } from "zustand/vanilla";
 
 import { message } from "@/components/AntdStaticMethods";
-// import { sessionService } from '@/services/session';
 import { SessionStore } from "@/store/session";
 import { SessionGroupItem } from "@/types/session";
 

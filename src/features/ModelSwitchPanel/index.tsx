@@ -54,6 +54,8 @@ const ModelSwitchPanel = memo<PropsWithChildren>(({ children }) => {
 
   const enabledList = useEnabledChatModels();
 
+  console.log('enabledList', enabledList);
+
   const items = useMemo<ItemType[]>(() => {
     const getModelItems = (provider: EnabledProviderWithModels) => {
       const items = provider.children.map((model) => ({
@@ -101,6 +103,8 @@ const ModelSwitchPanel = memo<PropsWithChildren>(({ children }) => {
       type: 'group',
     }));
   }, [enabledList]);
+
+  console.log('ModelSwitchPanel items', items);
 
   return (
     <Dropdown

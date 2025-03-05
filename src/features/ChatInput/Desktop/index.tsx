@@ -38,6 +38,8 @@ const DesktopChatInput = memo<DesktopChatInputProps>(
     const onSend = useCallback(() => {
       setExpand(false);
     }, []);
+    console.log('leftActions', leftActions);
+    console.log('rightActions', rightActions);
 
     return (
       <>

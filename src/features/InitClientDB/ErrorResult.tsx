@@ -94,7 +94,6 @@ const ErrorResult = memo<FailedModalProps>(({ children }) => {
 								href={GITHUB_ISSUES}
 								onClick={(e) => {
 									e.preventDefault();
-									// githubService.submitPgliteInitError(error);
 								}}
 								target='_blank'>
 								提交问题

@@ -47,7 +47,6 @@ export const createSyncSlice: StateCreator<UserStore, [["zustand/devtools", neve
 		const defaultUserName = `My ${browserInfo.browser} (${browserInfo.os})`;
 
 		set({ syncStatus: PeerSyncStatus.Connecting });
-		// const { syncService } = await import('@/services/sync');
 
 		// return syncService.enabledSync({
 		//   channel: {
@@ -82,7 +81,6 @@ export const createSyncSlice: StateCreator<UserStore, [["zustand/devtools", neve
 
 				// if user don't enable sync, stop sync
 				// if (!userEnableSync) {
-				//   const { syncService } = await import('@/services/sync');
 				//   return syncService.disableSync();
 				// }
 

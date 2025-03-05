@@ -1,6 +1,5 @@
 import type { StateCreator } from "zustand/vanilla";
 
-// import { userService } from '@/services/user';
 import type { UserStore } from "@/store/user";
 import { UserGuide, UserPreference } from "@/types/user";
 import { merge } from "@/utils/merge";

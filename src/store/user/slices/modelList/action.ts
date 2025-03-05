@@ -187,7 +187,6 @@ export const createModelListSlice: StateCreator<UserStore, [["zustand/devtools",
 		useSWR<ChatModelCard[] | undefined>(
 			[provider, enabledAutoFetch],
 			// async ([p]) => {
-			// const { modelsService } = await import('@/services/models');
 
 			// return modelsService.getChatModels(p);
 			// },

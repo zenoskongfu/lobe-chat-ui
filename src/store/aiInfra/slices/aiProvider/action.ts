@@ -5,7 +5,6 @@ import { StateCreator } from "zustand/vanilla";
 import { DEFAULT_MODEL_PROVIDER_LIST } from "@/config/modelProviders";
 import { isDeprecatedEdition } from "@/const/version";
 import { useClientDataSWR } from "@/libs/swr";
-// import { aiProviderService } from '@/services/aiProvider';
 import { AiInfraStore } from "@/store/aiInfra/store";
 import { ModelAbilities } from "@/types/aiModel";
 import {

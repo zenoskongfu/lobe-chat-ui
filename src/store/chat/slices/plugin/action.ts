@@ -7,12 +7,9 @@ import { StateCreator } from "zustand/vanilla";
 
 import { LOADING_FLAT } from "@/const/message";
 import { PLUGIN_SCHEMA_API_MD5_PREFIX, PLUGIN_SCHEMA_SEPARATOR } from "@/const/plugin";
-// import { chatService } from '@/services/chat';
-// import { messageService } from '@/services/message';
+
 import { ChatStore } from "@/store/chat/store";
-// import { useToolStore } from '@/store/tool';
-// import { pluginSelectors } from '@/store/tool/selectors';
-// import { builtinTools } from '@/tools';
+
 import { ChatErrorType } from "@/types/fetch";
 import { ChatMessage, ChatMessageError, ChatToolPayload, CreateMessageParams, MessageToolCall } from "@/types/message";
 import { merge } from "@/utils/merge";
