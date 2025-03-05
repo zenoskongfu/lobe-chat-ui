@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { memo } from 'react';
+import { memo } from "react";
 
-import { useGlobalStore } from '@/store/global';
-import { systemStatusSelectors } from '@/store/global/selectors';
+import { useGlobalStore } from "@/store/global";
+import { systemStatusSelectors } from "@/store/global/selectors";
 
-import Toast from './Toast';
+import Toast from "./Toast";
 
 const ZenModeToast = memo(() => {
   const inZenMode = useGlobalStore(systemStatusSelectors.inZenMode);

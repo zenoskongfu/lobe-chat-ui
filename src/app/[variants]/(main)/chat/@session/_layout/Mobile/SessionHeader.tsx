@@ -16,32 +16,32 @@ import SyncStatusInspector from "@/features/SyncStatusInspector";
 // import { mobileHeaderSticky } from '@/styles/mobileHeader';
 
 const Header = memo(() => {
-	// const [createSession] = useSessionStore((s) => [s.createSession]);
-	// const router = useRouter();
-	// const { enableWebrtc, showCreateSession } = useServerConfigStore(featureFlagsSelectors);
+  // const [createSession] = useSessionStore((s) => [s.createSession]);
+  // const router = useRouter();
+  // const { enableWebrtc, showCreateSession } = useServerConfigStore(featureFlagsSelectors);
 
-	return null;
-	return (
-		<MobileNavBar
-			left={
-				<Flexbox align={"center"} gap={8} horizontal style={{ marginLeft: 8 }}>
-					<UserAvatar onClick={() => router.push("/me")} size={32} />
-					<ProductLogo type={"text"} />
-					{enableWebrtc && <SyncStatusInspector placement={"bottom"} />}
-				</Flexbox>
-			}
-			right={
-				showCreateSession && (
-					<ActionIcon
-						icon={MessageSquarePlus}
-						onClick={() => createSession()}
-						size={MOBILE_HEADER_ICON_SIZE}
-					/>
-				)
-			}
-			style={mobileHeaderSticky}
-		/>
-	);
+  return null;
+  // return (
+  // 	<MobileNavBar
+  // 		left={
+  // 			<Flexbox align={"center"} gap={8} horizontal style={{ marginLeft: 8 }}>
+  // 				<UserAvatar onClick={() => router.push("/me")} size={32} />
+  // 				<ProductLogo type={"text"} />
+  // 				{enableWebrtc && <SyncStatusInspector placement={"bottom"} />}
+  // 			</Flexbox>
+  // 		}
+  // 		right={
+  // 			showCreateSession && (
+  // 				<ActionIcon
+  // 					icon={MessageSquarePlus}
+  // 					onClick={() => createSession()}
+  // 					size={MOBILE_HEADER_ICON_SIZE}
+  // 				/>
+  // 			)
+  // 		}
+  // 		style={mobileHeaderSticky}
+  // 	/>
+  // );
 });
 
 export default Header;

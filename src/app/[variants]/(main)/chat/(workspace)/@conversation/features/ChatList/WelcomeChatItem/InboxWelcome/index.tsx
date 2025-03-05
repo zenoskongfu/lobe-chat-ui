@@ -1,18 +1,21 @@
-'use client';
+"use client";
 
-import { FluentEmoji, Markdown } from '@lobehub/ui';
-import { createStyles } from 'antd-style';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Center, Flexbox } from 'react-layout-kit';
+import { FluentEmoji, Markdown } from "@lobehub/ui";
+import { createStyles } from "antd-style";
+import { memo } from "react";
+import { useTranslation } from "react-i18next";
+import { Center, Flexbox } from "react-layout-kit";
 
-import { BRANDING_NAME } from '@/const/branding';
-import { isCustomBranding } from '@/const/version';
-import { useGreeting } from '@/hooks/useGreeting';
-import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfig';
+import { BRANDING_NAME } from "@/const/branding";
+import { isCustomBranding } from "@/const/version";
+// import { useGreeting } from '@/hooks/useGreeting';
+import {
+  featureFlagsSelectors,
+  useServerConfigStore,
+} from "@/store/serverConfig";
 
-import AgentsSuggest from './AgentsSuggest';
-import QuestionSuggest from './QuestionSuggest';
+import AgentsSuggest from "./AgentsSuggest";
+import QuestionSuggest from "./QuestionSuggest";
 
 const useStyles = createStyles(({ css, responsive }) => ({
   container: css`
@@ -40,30 +43,35 @@ const useStyles = createStyles(({ css, responsive }) => ({
 }));
 
 const InboxWelcome = memo(() => {
-  const { t } = useTranslation('welcome');
+  const { t } = useTranslation("welcome");
   const { styles } = useStyles();
-  const mobile = useServerConfigStore((s) => s.isMobile);
-  const greeting = useGreeting();
-  const { showWelcomeSuggest, showCreateSession } = useServerConfigStore(featureFlagsSelectors);
+  // const mobile = useServerConfigStore((s) => s.isMobile);
+  // const greeting = useGreeting();
+  // const { showWelcomeSuggest, showCreateSession } = useServerConfigStore(featureFlagsSelectors);
 
   return (
-    <Center padding={16} width={'100%'}>
-      <Flexbox className={styles.container} gap={16} style={{ maxWidth: 800 }} width={'100%'}>
-        <Flexbox align={'center'} gap={8} horizontal>
-          <FluentEmoji emoji={'👋'} size={40} type={'anim'} />
-          <h1 className={styles.title}>{greeting}</h1>
+    <Center padding={16} width={"100%"}>
+      <Flexbox
+        className={styles.container}
+        gap={16}
+        style={{ maxWidth: 800 }}
+        width={"100%"}
+      >
+        <Flexbox align={"center"} gap={8} horizontal>
+          <FluentEmoji emoji={"👋"} size={40} type={"anim"} />
+          <h1 className={styles.title}>{"greetings"}</h1>
         </Flexbox>
-        <Markdown className={styles.desc} variant={'chat'}>
-          {t(showCreateSession ? 'guide.defaultMessage' : 'guide.defaultMessageWithoutCreate', {
+        <Markdown className={styles.desc} variant={"chat"}>
+          {t("guide.defaultMessageWithoutCreate", {
             appName: BRANDING_NAME,
           })}
         </Markdown>
-        {showWelcomeSuggest && (
-          <>
-            <AgentsSuggest mobile={mobile} />
-            {!isCustomBranding && <QuestionSuggest mobile={mobile} />}
-          </>
-        )}
+        {/* {showWelcomeSuggest && ( */}
+        <>
+          <AgentsSuggest />
+          {!isCustomBranding && <QuestionSuggest />}
+        </>
+        {/* )} */}
       </Flexbox>
     </Center>
   );

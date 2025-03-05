@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import { EmptyCard } from '@lobehub/ui';
-import { useThemeMode } from 'antd-style';
-import isEqual from 'fast-deep-equal';
-import React, { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
+import { EmptyCard } from "@lobehub/ui";
+import { useThemeMode } from "antd-style";
+import isEqual from "fast-deep-equal";
+import React, { memo } from "react";
+import { useTranslation } from "react-i18next";
+import { Flexbox } from "react-layout-kit";
 
-import { imageUrl } from '@/const/url';
-import { useFetchTopics } from '@/hooks/useFetchTopics';
-import { useChatStore } from '@/store/chat';
-import { topicSelectors } from '@/store/chat/selectors';
-import { useUserStore } from '@/store/user';
-import { preferenceSelectors } from '@/store/user/selectors';
-import { TopicDisplayMode } from '@/types/topic';
+import { imageUrl } from "@/const/url";
+// import { useFetchTopics } from '@/hooks/useFetchTopics';
+import { useChatStore } from "@/store/chat";
+import { topicSelectors } from "@/store/chat/selectors";
+import { useUserStore } from "@/store/user";
+import { preferenceSelectors } from "@/store/user/selectors";
+import { TopicDisplayMode } from "@/types/topic";
 
-import { SkeletonList } from '../SkeletonList';
-import ByTimeMode from './ByTimeMode';
-import FlatMode from './FlatMode';
+import { SkeletonList } from "../SkeletonList";
+import ByTimeMode from "./ByTimeMode";
+import FlatMode from "./FlatMode";
 
 const TopicListContent = memo(() => {
-  const { t } = useTranslation('topic');
+  const { t } = useTranslation("topic");
   const { isDarkMode } = useThemeMode();
   const [topicsInit, topicLength] = useChatStore((s) => [
     s.topicsInit,
@@ -34,7 +34,7 @@ const TopicListContent = memo(() => {
     preferenceSelectors.topicDisplayMode(s),
   ]);
 
-  useFetchTopics();
+  // useFetchTopics();
 
   // first time loading or has no data
   if (!topicsInit || !activeTopicList) return <SkeletonList />;
@@ -44,9 +44,11 @@ const TopicListContent = memo(() => {
       {topicLength === 0 && visible && (
         <Flexbox paddingInline={8}>
           <EmptyCard
-            alt={t('guide.desc')}
-            cover={imageUrl(`empty_topic_${isDarkMode ? 'dark' : 'light'}.webp`)}
-            desc={t('guide.desc')}
+            alt={t("guide.desc")}
+            cover={imageUrl(
+              `empty_topic_${isDarkMode ? "dark" : "light"}.webp`
+            )}
+            desc={t("guide.desc")}
             height={120}
             imageProps={{
               priority: true,
@@ -54,18 +56,22 @@ const TopicListContent = memo(() => {
             onVisibleChange={(visible) => {
               updateGuideState({ topic: visible });
             }}
-            style={{ flex: 'none', marginBottom: 12 }}
-            title={t('guide.title')}
+            style={{ flex: "none", marginBottom: 12 }}
+            title={t("guide.title")}
             visible={visible}
             width={200}
           />
         </Flexbox>
       )}
-      {topicDisplayMode === TopicDisplayMode.ByTime ? <ByTimeMode /> : <FlatMode />}
+      {topicDisplayMode === TopicDisplayMode.ByTime ? (
+        <ByTimeMode />
+      ) : (
+        <FlatMode />
+      )}
     </>
   );
 });
 
-TopicListContent.displayName = 'TopicListContent';
+TopicListContent.displayName = "TopicListContent";
 
 export default TopicListContent;

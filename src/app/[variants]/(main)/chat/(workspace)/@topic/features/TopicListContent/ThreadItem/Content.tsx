@@ -1,15 +1,15 @@
-import { ActionIcon, EditableText, Icon } from '@lobehub/ui';
-import { App, Dropdown, type MenuProps, Typography } from 'antd';
-import { createStyles } from 'antd-style';
-import { MoreVertical, PencilLine, Trash } from 'lucide-react';
-import { memo, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
+import { ActionIcon, EditableText, Icon } from "@lobehub/ui";
+import { App, Dropdown, type MenuProps, Typography } from "antd";
+import { createStyles } from "antd-style";
+import { MoreVertical, PencilLine, Trash } from "lucide-react";
+import { memo, useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import { Flexbox } from "react-layout-kit";
 
-import BubblesLoading from '@/components/BubblesLoading';
-import { LOADING_FLAT } from '@/const/message';
-import { useIsMobile } from '@/hooks/useIsMobile';
-import { useChatStore } from '@/store/chat';
+import BubblesLoading from "@/components/BubblesLoading";
+import { LOADING_FLAT } from "@/const/message";
+// import { useIsMobile } from '@/hooks/useIsMobile';
+import { useChatStore } from "@/store/chat";
 
 const useStyles = createStyles(({ css, token }) => ({
   active: css`
@@ -40,9 +40,9 @@ interface TopicContentProps {
 }
 
 const Content = memo<TopicContentProps>(({ id, title, active, showMore }) => {
-  const { t } = useTranslation(['thread', 'common']);
+  const { t } = useTranslation(["thread", "common"]);
 
-  const mobile = useIsMobile();
+  // const mobile = useIsMobile();
 
   const [editing, updateThreadTitle, removeThread] = useChatStore((s) => [
     s.threadRenamingId === id,
@@ -52,29 +52,29 @@ const Content = memo<TopicContentProps>(({ id, title, active, showMore }) => {
   const { styles, cx } = useStyles();
 
   const toggleEditing = (visible?: boolean) => {
-    useChatStore.setState({ threadRenamingId: visible ? id : '' });
+    useChatStore.setState({ threadRenamingId: visible ? id : "" });
   };
 
   const { modal } = App.useApp();
 
-  const items = useMemo<MenuProps['items']>(
+  const items = useMemo<MenuProps["items"]>(
     () => [
       {
         icon: <Icon icon={PencilLine} />,
-        key: 'rename',
-        label: t('rename', { ns: 'common' }),
+        key: "rename",
+        label: t("rename", { ns: "common" }),
         onClick: () => {
           toggleEditing(true);
         },
       },
       {
-        type: 'divider',
+        type: "divider",
       },
       {
         danger: true,
         icon: <Icon icon={Trash} />,
-        key: 'delete',
-        label: t('delete', { ns: 'common' }),
+        key: "delete",
+        label: t("delete", { ns: "common" }),
         onClick: () => {
           if (!id) return;
 
@@ -84,20 +84,20 @@ const Content = memo<TopicContentProps>(({ id, title, active, showMore }) => {
             onOk: async () => {
               await removeThread(id);
             },
-            title: t('actions.confirmRemoveThread'),
+            title: t("actions.confirmRemoveThread"),
           });
         },
       },
     ],
-    [],
+    []
   );
 
   return (
     <Flexbox
-      align={'center'}
+      align={"center"}
       gap={8}
       horizontal
-      justify={'space-between'}
+      justify={"space-between"}
       onDoubleClick={(e) => {
         if (!id) return;
         if (e.altKey) toggleEditing(true);
@@ -105,13 +105,13 @@ const Content = memo<TopicContentProps>(({ id, title, active, showMore }) => {
     >
       {!editing ? (
         title === LOADING_FLAT ? (
-          <Flexbox flex={1} height={28} justify={'center'}>
+          <Flexbox flex={1} height={28} justify={"center"}>
             <BubblesLoading />
           </Flexbox>
         ) : (
           <Paragraph
             className={cx(styles.title, active && styles.active)}
-            ellipsis={{ rows: 1, tooltip: { placement: 'left', title } }}
+            ellipsis={{ rows: 1, tooltip: { placement: "left", title } }}
             style={{ margin: 0 }}
           >
             {title}
@@ -128,15 +128,15 @@ const Content = memo<TopicContentProps>(({ id, title, active, showMore }) => {
           }}
           onEditingChange={toggleEditing}
           showEditIcon={false}
-          size={'small'}
+          size={"small"}
           style={{
             height: 28,
           }}
-          type={'pure'}
+          type={"pure"}
           value={title}
         />
       )}
-      {(showMore || mobile) && !editing && (
+      {showMore && !editing && (
         <Dropdown
           arrow={false}
           menu={{
@@ -145,7 +145,7 @@ const Content = memo<TopicContentProps>(({ id, title, active, showMore }) => {
               domEvent.stopPropagation();
             },
           }}
-          trigger={['click']}
+          trigger={["click"]}
         >
           <ActionIcon
             className="topic-more"
@@ -153,7 +153,7 @@ const Content = memo<TopicContentProps>(({ id, title, active, showMore }) => {
             onClick={(e) => {
               e.stopPropagation();
             }}
-            size={'small'}
+            size={"small"}
           />
         </Dropdown>
       )}

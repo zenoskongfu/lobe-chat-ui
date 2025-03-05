@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { createStyles } from 'antd-style';
-import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
+import { createStyles } from "antd-style";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Flexbox } from "react-layout-kit";
 
-import HotKeys from '@/components/HotKeys';
-import { HOTKEYS } from '@/const/hotkeys';
+import HotKeys from "@/components/HotKeys";
+import { HOTKEYS } from "@/const/hotkeys";
 
 const useStyles = createStyles(({ css, token }) => ({
   closeButton: css`
@@ -59,7 +59,7 @@ const useStyles = createStyles(({ css, token }) => ({
 }));
 
 const Toast = () => {
-  const { t } = useTranslation('chat');
+  const { t } = useTranslation("chat");
   const { styles } = useStyles();
   const [isVisible, setIsVisible] = useState(true);
 
@@ -77,7 +77,7 @@ const Toast = () => {
     <div className={styles.container}>
       <div className={styles.toast}>
         <Flexbox className={styles.text} gap={12} horizontal>
-          {t('zenMode')} <HotKeys inverseTheme keys={HOTKEYS.zenMode} />
+          {t("zenMode")} <HotKeys inverseTheme keys={HOTKEYS.zenMode} />
         </Flexbox>
       </div>
     </div>

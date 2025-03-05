@@ -6,7 +6,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
-import { useIsMobile } from '@/hooks/useIsMobile';
+// import { useIsMobile } from '@/hooks/useIsMobile';
 import { useChatStore } from '@/store/chat';
 import { chatSelectors } from '@/store/chat/selectors';
 import { ThreadItem } from '@/types/topic';
@@ -41,7 +41,7 @@ const Item = memo<ThreadItem>(({ id, title, lastActiveAt, sourceMessageId }) => 
     s.activeThreadId === id,
     chatSelectors.countMessagesByThreadId(id)(s),
   ]);
-  const mobile = useIsMobile();
+  // const mobile = useIsMobile();
   return (
     <Flexbox
       align={'baseline'}
@@ -57,7 +57,7 @@ const Item = memo<ThreadItem>(({ id, title, lastActiveAt, sourceMessageId }) => 
       {title}
       <Flexbox className={styles.extra} horizontal>
         {!!messageCount && t('thread.threadMessageCount', { messageCount })}
-        {!mobile && ` · ${dayjs(lastActiveAt).format('YYYY-MM-DD')}`}
+        {/* {!mobile && ` · ${dayjs(lastActiveAt).format('YYYY-MM-DD')}`} */}
         <Icon icon={ChevronRight} />
       </Flexbox>
     </Flexbox>

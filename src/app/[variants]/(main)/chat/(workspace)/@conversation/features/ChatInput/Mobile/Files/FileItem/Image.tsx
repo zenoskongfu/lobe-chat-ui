@@ -1,11 +1,11 @@
-import { ActionIcon, Image } from '@lobehub/ui';
-import { createStyles } from 'antd-style';
-import { Trash } from 'lucide-react';
-import { memo } from 'react';
+import { ActionIcon, Image } from "@lobehub/ui";
+import { createStyles } from "antd-style";
+import { Trash } from "lucide-react";
+import { memo } from "react";
 
-import { usePlatform } from '@/hooks/usePlatform';
+// import { usePlatform } from '@/hooks/usePlatform';
 
-import { MIN_IMAGE_SIZE } from './style';
+import { MIN_IMAGE_SIZE } from "./style";
 
 const useStyles = createStyles(({ css, token }) => ({
   deleteButton: css`
@@ -43,7 +43,7 @@ interface FileItemProps {
 const FileItem = memo<FileItemProps>(({ alt, onRemove, src, loading }) => {
   const IMAGE_SIZE = MIN_IMAGE_SIZE;
   const { styles, cx } = useStyles();
-  const { isSafari } = usePlatform();
+  // const { isSafari } = usePlatform();
 
   return (
     <Image
@@ -57,18 +57,18 @@ const FileItem = memo<FileItemProps>(({ alt, onRemove, src, loading }) => {
             onRemove?.();
           }}
           style={{
-            blockSize: '28px',
-            fontSize: '20px',
+            blockSize: "28px",
+            fontSize: "20px",
           }}
         />
       }
-      alt={alt || ''}
+      alt={alt || ""}
       alwaysShowActions
-      height={isSafari ? 'auto' : '100%'}
+      height={"100%"}
       isLoading={loading}
       size={IMAGE_SIZE as any}
       src={src}
-      style={{ height: isSafari ? 'auto' : '100%' }}
+      style={{ height: "100%" }}
       wrapperClassName={cx(styles.image, styles.editableImage)}
     />
   );
