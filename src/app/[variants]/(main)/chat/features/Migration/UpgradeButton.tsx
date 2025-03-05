@@ -2,7 +2,6 @@ import { Button } from "antd";
 import { ReactNode, memo } from "react";
 import { useTranslation } from "react-i18next";
 
-// import { configService } from '@/services/config';
 import { useChatStore } from "@/store/chat";
 import { useSessionStore } from "@/store/session";
 

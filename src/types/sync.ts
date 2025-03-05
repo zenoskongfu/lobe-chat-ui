@@ -1,41 +1,41 @@
-import { LobeDBSchemaMap } from '@/database/_deprecated/core/db';
+// import { LobeDBSchemaMap } from '@/database/_deprecated/core/db';
 
-export type OnSyncEvent = (tableKey: keyof LobeDBSchemaMap) => void;
+export type OnSyncEvent = (tableKey: any) => void;
 export type OnSyncStatusChange = (status: PeerSyncStatus) => void;
 export type OnAwarenessChange = (state: SyncAwarenessState[]) => void;
 
 // export type PeerSyncStatus = 'syncing' | 'synced' | 'ready' | 'unconnected';
 
 export enum PeerSyncStatus {
-  Connecting = 'connecting',
-  Disabled = 'disabled',
-  Ready = 'ready',
-  Synced = 'synced',
-  Syncing = 'syncing',
-  Unconnected = 'unconnected',
+	Connecting = "connecting",
+	Disabled = "disabled",
+	Ready = "ready",
+	Synced = "synced",
+	Syncing = "syncing",
+	Unconnected = "unconnected",
 }
 
 export interface StartDataSyncParams {
-  channel: {
-    name: string;
-    password?: string;
-  };
-  onAwarenessChange: OnAwarenessChange;
-  onSyncEvent: OnSyncEvent;
-  onSyncStatusChange: OnSyncStatusChange;
-  signaling: string;
-  user: SyncUserInfo;
+	channel: {
+		name: string;
+		password?: string;
+	};
+	onAwarenessChange: OnAwarenessChange;
+	onSyncEvent: OnSyncEvent;
+	onSyncStatusChange: OnSyncStatusChange;
+	signaling: string;
+	user: SyncUserInfo;
 }
 
 export interface SyncUserInfo {
-  browser?: string;
-  id: string;
-  isMobile: boolean;
-  name?: string;
-  os?: string;
+	browser?: string;
+	id: string;
+	isMobile: boolean;
+	name?: string;
+	os?: string;
 }
 
 export interface SyncAwarenessState extends SyncUserInfo {
-  clientID: number;
-  current: boolean;
+	clientID: number;
+	current: boolean;
 }

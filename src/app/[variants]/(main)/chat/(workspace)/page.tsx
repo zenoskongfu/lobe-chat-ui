@@ -14,37 +14,39 @@ import PageTitle from "../features/PageTitle";
 import TelemetryNotification from "./features/TelemetryNotification";
 
 export const generateMetadata = async (props: DynamicLayoutProps) => {
-  const locale = await RouteVariants.getLocale(props);
-  // const { t } = await translation('metadata', locale);
-  // return metadataModule.generate({
-  //   description: t('chat.description', { appName: BRANDING_NAME }),
-  //   title: t('chat.title', { appName: BRANDING_NAME }),
-  //   url: '/chat',
-  // });
+	const locale = await RouteVariants.getLocale(props);
+	// const { t } = await translation('metadata', locale);
+	// return metadataModule.generate({
+	//   description: t('chat.description', { appName: BRANDING_NAME }),
+	//   title: t('chat.title', { appName: BRANDING_NAME }),
+	//   url: '/chat',
+	// });
 };
 
 const Page = async (props: DynamicLayoutProps) => {
-  const { hideDocs, showChangelog } = serverFeatureFlags();
-  const { isMobile, locale } = await RouteVariants.getVariantsFromProps(props);
-  // const { t } = await translation('metadata', locale);
-  // const ld = ldModule.generate({
-  //   description: t('chat.description', { appName: BRANDING_NAME }),
-  //   title: t('chat.title', { appName: BRANDING_NAME }),
-  //   url: '/chat',
-  // });
+	const { hideDocs, showChangelog } = serverFeatureFlags();
+	const { isMobile, locale } = await RouteVariants.getVariantsFromProps(props);
+	// const { t } = await translation('metadata', locale);
+	// const ld = ldModule.generate({
+	//   description: t('chat.description', { appName: BRANDING_NAME }),
+	//   title: t('chat.title', { appName: BRANDING_NAME }),
+	//   url: '/chat',
+	// });
 
-  return (
-    <>
-      {/* <StructuredData ld={ld} /> */}
-      <PageTitle />
-      <TelemetryNotification mobile={isMobile} />
-      {/* {showChangelog && !hideDocs && !isMobile && (
+	console.log("chat page");
+
+	return (
+		<>
+			{/* <StructuredData ld={ld} /> */}
+			<PageTitle />
+			<TelemetryNotification mobile={isMobile} />
+			{/* {showChangelog && !hideDocs && !isMobile && (
         <Suspense>
           <Changelog />
         </Suspense>
       )} */}
-    </>
-  );
+		</>
+	);
 };
 
 Page.displayName = "Chat";

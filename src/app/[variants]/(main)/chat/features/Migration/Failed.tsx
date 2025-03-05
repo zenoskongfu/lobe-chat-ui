@@ -11,7 +11,6 @@ import { Flexbox } from "react-layout-kit";
 import Balancer from "react-wrap-balancer";
 
 import { GITHUB_ISSUES } from "@/const/url";
-// import { githubService } from '@/services/github';
 
 import ExportConfigButton from "./ExportConfigButton";
 import UpgradeButton from "./UpgradeButton";

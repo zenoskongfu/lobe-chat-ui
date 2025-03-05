@@ -8,4 +8,6 @@ const Layout = ServerLayout<LayoutProps>({ Desktop, Mobile });
 
 Layout.displayName = "ChatLayout";
 
+console.log("chat layout");
+
 export default Layout;

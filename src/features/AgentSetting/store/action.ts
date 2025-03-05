@@ -1,12 +1,7 @@
 import { DeepPartial } from "utility-types";
 import { StateCreator } from "zustand/vanilla";
 
-// import { chainPickEmoji } from '@/chains/pickEmoji';
-// import { chainSummaryAgentName } from '@/chains/summaryAgentName';
-// import { chainSummaryDescription } from '@/chains/summaryDescription';
-// import { chainSummaryTags } from '@/chains/summaryTags';
 import { TraceNameMap, TracePayload, TraceTopicType } from "@/const/trace";
-// import { chatService } from '@/services/chat';
 import { useUserStore } from "@/store/user";
 import { systemAgentSelectors } from "@/store/user/slices/settings/selectors";
 import { LobeAgentChatConfig, LobeAgentConfig } from "@/types/agent";
